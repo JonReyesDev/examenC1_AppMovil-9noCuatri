@@ -1,12 +1,12 @@
 package com.example.examenc1;
 
-public class CuentaBanco {
+public class cuentaBanco {
     private String numeroCuenta;
     private String nombre;
     private String banco;
     private double saldo;
 
-    public CuentaBanco(String numeroCuenta, String nombre, String banco, double saldo) {
+    public cuentaBanco(String numeroCuenta, String nombre, String banco, double saldo) {
         this.numeroCuenta = numeroCuenta;
         this.nombre = nombre;
         this.banco = banco;
