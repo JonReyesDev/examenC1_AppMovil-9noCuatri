@@ -6,6 +6,31 @@
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/usuarioTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuario: Admin"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/numeroCuentaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de cuenta" />
+
+    <EditText
+        android:id="@+id/nombreEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre" />
+
+    <EditText
+        android:id="@+id/bancoEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Banco" />
+
+    <TextView
         android:id="@+id/saldoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,11 +46,28 @@
         android:id="@+id/cantidadEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cantidad a depositar o retirar" />
+        android:hint="Cantidad a depositar o retirar"
+        android:inputType="numberDecimal" />
 
     <Button
         android:id="@+id/aplicarButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#EB1C2D"
         android:text="Aplicar" />
+
+    <Button
+        android:id="@+id/limpiarButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EB1C2D"
+        android:text="Limpiar" />
+
+    <Button
+        android:id="@+id/regresarButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4E4848"
+        android:text="Regresar" />
 </LinearLayout>
+

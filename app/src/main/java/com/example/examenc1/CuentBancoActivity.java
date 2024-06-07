@@ -1,25 +1,48 @@
 package com.example.examenc1;
 
-public class CuentaBancoActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class CuentBancoActivity extends AppCompatActivity {
+    private TextView usuarioTextView;
     private TextView saldoTextView;
+    private EditText numeroCuentaEditText;
+    private EditText nombreEditText;
+    private EditText bancoEditText;
     private EditText cantidadEditText;
     private Spinner movimientosSpinner;
     private Button aplicarButton;
+    private Button limpiarButton;
+    private Button regresarButton;
 
-    private CuentaBanco cuenta;
+    private cuentaBanco cuenta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuentabanco);
 
+        usuarioTextView = findViewById(R.id.usuarioTextView);
         saldoTextView = findViewById(R.id.saldoTextView);
+        numeroCuentaEditText = findViewById(R.id.numeroCuentaEditText);
+        nombreEditText = findViewById(R.id.nombreEditText);
+        bancoEditText = findViewById(R.id.bancoEditText);
         cantidadEditText = findViewById(R.id.cantidadEditText);
         movimientosSpinner = findViewById(R.id.movimientosSpinner);
         aplicarButton = findViewById(R.id.aplicarButton);
+        limpiarButton = findViewById(R.id.limpiarButton);
+        regresarButton = findViewById(R.id.regresarButton);
 
         // Inicializar la cuenta del usuario (en un caso real, se obtendría de una base de datos)
-        cuenta = new CuentaBanco("12345", "Admin", "BancoX", 1000.00);
+        cuenta = new cuentaBanco("12345", "Admin", "BancoX", 0.00);
 
         // Mostrar el saldo inicial
         saldoTextView.setText(String.format("Saldo: %.2f", cuenta.consultarSaldo()));
@@ -37,9 +60,6 @@ public class CuentaBancoActivity extends AppCompatActivity {
                 double cantidad = Double.parseDouble(cantidadEditText.getText().toString());
 
                 switch (movimientoSeleccionado) {
-                    case "Consultar":
-                        // No se hace nada ya que el saldo siempre está visible
-                        break;
                     case "Depositar":
                         cuenta.depositar(cantidad);
                         break;
@@ -53,10 +73,26 @@ public class CuentaBancoActivity extends AppCompatActivity {
                 actualizarSaldo();
             }
         });
+
+        limpiarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cantidadEditText.setText("");
+                numeroCuentaEditText.setText("");
+                nombreEditText.setText("");
+                bancoEditText.setText("");
+            }
+        });
+
+        regresarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // Regresa a la actividad anterior (MainActivity)
+            }
+        });
     }
 
     private void actualizarSaldo() {
         saldoTextView.setText(String.format("Saldo: %.2f", cuenta.consultarSaldo()));
     }
 }
-

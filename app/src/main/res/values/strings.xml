@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ExamenC1</string>
+    <string name="user">admin</string>
+    <string name="pass">1234</string>
+    <string name="banco">banorte</string>
+    <string name="domicilio">av del sol 34</string>
+    <string-array name="movimientos">
+        <item>Retirar</item>
+        <item>Depositar</item>
+    </string-array>
 </resources>
